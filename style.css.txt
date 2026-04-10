@@ -1,0 +1,54 @@
+:root {
+    --primary-pink: #ff69b4;
+    --dark-purple: #1a0a2e;
+    --glass: rgba(255, 255, 255, 0.1);
+}
+
+body, html {
+    margin: 0; padding: 0; height: 100%;
+    background: var(--dark-purple);
+    color: white; font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+section {
+    display: none; height: 100vh; width: 100vw;
+    flex-direction: column; align-items: center; justify-content: center;
+    position: absolute; top: 0; left: 0;
+}
+
+section.active { display: flex; animation: zoomIn 0.8s forwards; }
+
+/* Loader */
+.floating-kitty { width: 100px; animation: bounce 2s infinite ease-in-out; }
+.progress-container { width: 250px; height: 8px; background: #333; border-radius: 10px; margin-top: 20px; overflow: hidden; }
+.progress-bar { width: 0%; height: 100%; background: var(--primary-pink); animation: fillProgress 3s forwards; }
+
+/* Cards */
+.deck { display: flex; flex-direction: column; gap: 20px; }
+.card { width: 320px; height: 120px; perspective: 1000px; cursor: pointer; }
+.card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; }
+.card.is-flipped .card-inner { transform: rotateY(180deg); }
+.card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px solid var(--primary-pink); }
+.card-front img { width: 60px; }
+.card-back { background: var(--primary-pink); transform: rotateY(180deg); padding: 15px; font-size: 14px; }
+
+/* Photo Gallery */
+.photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; }
+.photo-frame { width: 150px; height: 150px; border: 4px solid white; transform: rotate(-3deg); overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+.photo-frame:nth-child(even) { transform: rotate(3deg); }
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Final Message */
+.envelope { background: var(--glass); backdrop-filter: blur(10px); padding: 30px; border-radius: 30px; border: 1px solid var(--primary-pink); width: 85%; max-width: 400px; }
+.message-text { font-size: 15px; line-height: 1.6; text-align: left; min-height: 150px; }
+
+/* Buttons */
+.btn { background: var(--primary-pink); color: white; border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-weight: bold; margin: 10px; transition: 0.3s; }
+.btn:hover { transform: scale(1.1); box-shadow: 0 0 20px var(--primary-pink); }
+.hidden-item { display: none; opacity: 0; }
+
+/* Animations */
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+@keyframes fillProgress { to { width: 100%; } }
+@keyframes zoomIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Riya! ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="bg-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="main-wrapper">
+        <section id="loader" class="active">
+            <div class="kitty-container">
+                <img src="hello-kitty.png" alt="Kitty" class="floating-kitty">
+                <div class="loading-heart"><img src="heart.png" width="30"></div>
+                <div class="loading-text">Loading something special for Riya...</div>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cards-screen">
+            <h1 class="title">Tap the Cards <img src="heart.png" width="25"></h1>
+            <div class="deck">
+                <div class="card" onclick="flip(this)">
+                    <div class="card-inner">
+                        <div class="card-front"><img src="hello-kitty.png"></div>
+                        <div class="card-back">Har choti badi moment mere liye special hai Riya! ✨</div>
+                    </div>
+                </div>
+                <div class="card" onclick="flip(this)">
+                    <div class="card-inner">
+                        <div class="card-front"><img src="hello-kitty.png"></div>
+                        <div class="card-back">I'm really sorry for everything. You're my favorite person! <img src="heart.png" width="15"></div>
+                    </div>
+                </div>
+                <div class="card" onclick="flip(this)">
+                    <div class="card-inner">
+                        <div class="card-front"><img src="hello-kitty.png"></div>
+                        <div class="card-back">I love you, always and forever, Riya! <img src="heart.png" width="15"></div>
+                    </div>
+                </div>
+            </div>
+            <button id="card-next" class="btn hidden" onclick="showSection('cake-section')">Continue ➡️</button>
+        </section>
+
+        <section id="cake-section">
+            <h1 id="cake-title">Just click on button</h1>
+            <div class="decoration-box">
+                <div id="banner" class="hidden-item">🎈 HAPPY BIRTHDAY RIYA 🎈</div>
+                <img src="cake.png" id="birthday-cake" class="hidden-item">
+                <h2 id="wish-text" class="hidden-item">Happy Birthday Beautiful!</h2>
+            </div>
+            <div class="controls">
+                <button class="btn" onclick="decorate()">Decorate</button>
+                <button id="cake-btn" class="btn hidden-item" onclick="revealCake()">Cake</button>
+                <button id="cake-next-btn" class="btn hidden-item" onclick="showSection('gallery-section')">Next</button>
+            </div>
+        </section>
+
+        <section id="gallery-section">
+            <h1 class="title">Some Sweet Moments 📸</h1>
+            <div class="photo-grid">
+                <div class="photo-frame"><img src="riya1.jpg"></div>
+                <div class="photo-frame"><img src="riya2.jpg"></div>
+                <div class="photo-frame"><img src="riya3.jpg"></div>
+                <div class="photo-frame"><img src="riya4.jpg"></div>
+            </div>
+            <button class="btn" onclick="showSection('final-section')">Open My Message <img src="heart.png" width="15"></button>
+        </section>
+
+        <section id="final-section">
+            <div class="envelope">
+                <div class="kitty-head">🐱🎀</div>
+                <h2>My Sweetest Love</h2>
+                <div id="typewriter" class="message-text"></div>
+                <button class="btn" onclick="celebrate()">Celebrate 🎊</button>
+            </div>
+        </section>
+    </div>
+
+    <canvas id="confetti-canvas"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
